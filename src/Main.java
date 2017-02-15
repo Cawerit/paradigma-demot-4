@@ -1,40 +1,60 @@
-import java.lang.reflect.Array;
-import java.util.*;
 
 class Main {
     public static void main(String[] args) {
-        Ihminen i = new Ihminen(null, null);
+      
+        Sinileva s = new Sinileva(null, null);
+        System.out.println(s);
+        s.yhteyta();
+        Sinileva s2 = s.lisaannySuvuttomasti();
+        System.out.println(s2);
+        
+        System.out.println("-----");
+        
+        Karpasloukku k = new Karpasloukku(null, null);
+        System.out.println(k);
+        k.liiku();
+        k.yhteyta();
+        
+        System.out.println("-----");
+        
+        Limasieni l = new Limasieni(null, null);
+        System.out.println(l);
+        l.liiku();
+        l.pakene();
+        
+        System.out.println("-----");
+      
         Harka h = new Harka(null, null);
+        System.out.println(h);
+        h.liiku();
+        
+        System.out.println("-----");
+        
+        Ihminen i = new Ihminen(null, null);
+        i.liiku();
+        i.pakene();
+        i.puhu();
+        Ihminen i2 = new Ihminen(null, null);
+        Ihminen i3 = i.lisaannySuvullisesti(i2);
+        System.out.println(i3);
+        
+        System.out.println("-----");
+        
         Minotaur m = i.lisaannySuvullisesti(h);
         System.out.println(m);
+        m.liiku();
+        m.puhu();
+        
+        System.out.println("-----");
+        
+        Kasvi kas = new Kasvi(null, null);
+        Elain ela = new Elain(null, null);
+        
+        Alruuna a = new Alruuna(kas, ela); // Hankala!
+        System.out.println(a);
+        a.liiku();
+        a.puhu();
     }
-}
-
-abstract class Aitotumainen {
-
-    public final List<String> dna = new ArrayList<String>();
-
-    public Aitotumainen(Aitotumainen a, Aitotumainen b) {
-        if (a != null) dna.add("Parent: " + a.dna);
-        if (b != null) dna.add("Parent: " + b.dna);
-        dna.add("Aitotumainen " + hashCode());
-    }
-
-    public String toString() {
-        return getClass().getName() + " " + dna;
-    }
-}
-
-class Elain extends Aitotumainen {
-    public Elain(Elain a, Elain b) { super(a, b); dna.add("Elain"); }
-}
-
-class Kasvi extends Aitotumainen {
-    public Kasvi(Kasvi a, Kasvi b) { super(a, b); }
-}
-
-class Sieni extends Aitotumainen {
-    public Sieni(Sieni a, Sieni b) { super(a, b); }
 }
 
 

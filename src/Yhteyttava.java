@@ -1,10 +1,13 @@
 
+import java.util.Random;
+
 public interface Yhteyttava {
 
-    default float getYhteytysMaara(){ return 0.5f; };
+    default float getYhteytysMaara(){ return 2.5f; };
 
     default void yhteyta() {
-        System.out.println("Yhteytt√§√§ " + getYhteytysMaara());
+        float satunnaisuus = new Random().nextFloat();
+        System.out.println("Yhteytt‰‰ " + (getYhteytysMaara() * satunnaisuus));
     }
 
 }
